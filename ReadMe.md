@@ -24,7 +24,7 @@
    [![Install](https://img.shields.io/badge/-Install%20in%20VS%20Code-blue?style=for-the-badge&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=incredible-mack.apache-vhost-manager)
 
 2. Or clone this repository:
-   ```bash
+
    git clone https://github.com/incredible-mack/apache-vhost-manager.git
    cd apache-vhost-manager
    npm install
