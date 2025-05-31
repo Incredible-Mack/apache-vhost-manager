@@ -1,0 +1,110 @@
+{
+    "name": "apache-vhost-manager",
+    "displayName": "Apache VHost Manager",
+    "description": "Quickly set up local Apache virtual hosts for Laravel and other PHP projects with one click",
+    "version": "1.1.0",
+    "license": "MIT",
+    "engines": {
+        "vscode": "^1.80.0"
+    },
+    "categories": [
+        "Programming Languages",
+        "Other"
+    ],
+    "keywords": [
+        "apache",
+        "vhost",
+        "laravel",
+        "php",
+        "development"
+    ],
+    "activationEvents": [
+        "onCommand:apache-vhost.createVHost",
+        "onCommand:apache-vhost.createVHostFromExplorer"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+        "keybindings": [{
+            "command": "apache-vhost.createVHost",
+            "key": "ctrl+shift+a",
+            "when": "explorerViewletVisible && filesExplorerFocus"
+        }],
+        "commands": [{
+                "command": "apache-vhost.createVHost",
+                "title": "Create Apache VHost",
+                "category": "Apache"
+            },
+            {
+                "command": "apache-vhost.createVHostFromExplorer",
+                "title": "Create VHost for this project",
+                "category": "Apache"
+            }
+        ],
+        "menus": {
+            "explorer/context": [{
+                "command": "apache-vhost.createVHostFromExplorer",
+                "group": "2_workspace",
+                "when": "explorerResourceIsFolder"
+            }]
+        },
+        "configuration": {
+            "title": "Apache VHost Manager",
+            "properties": {
+                "apacheVhostManager.apachePath": {
+                    "type": "string",
+                    "default": "C:\\Apache24",
+                    "description": "Path to Apache installation directory"
+                },
+                "apacheVhostManager.projectsRoot": {
+                    "type": "string",
+                    "default": "C:\\www",
+                    "description": "Default projects directory for VHosts"
+                }
+            }
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "pretest": "npm run compile",
+        "test": "node ./out/test/runTest.js",
+        "package": "vsce package",
+        "publish": "vsce publish"
+    },
+    "devDependencies": {
+        "@types/node": "^18.0.0",
+        "@types/vscode": "^1.80.0",
+        "typescript": "^4.9.5",
+        "@types/mocha": "^10.0.1",
+        "@types/sinon": "^10.0.13",
+        "mocha": "^10.1.0",
+        "sinon": "^15.0.1",
+        "eslint": "^8.42.0",
+        "@typescript-eslint/parser": "^5.60.1",
+        "@typescript-eslint/eslint-plugin": "^5.60.1"
+    },
+    "icon": "images/icon.png",
+    "galleryBanner": {
+        "color": "#2C3E50",
+        "theme": "dark"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/incredible-mack/apache-vhost-manager.git"
+    },
+    "bugs": {
+        "url": "https://github.com/incredible-mack/apache-vhost-manager/issues"
+    },
+    "homepage": "https://github.com/incredible-mack/apache-vhost-manager#readme",
+    "publisher": "incredible-mack",
+    "badges": [{
+        "url": "https://img.shields.io/visual-studio-marketplace/v/incredible-mack.apache-vhost-manager",
+        "href": "https://marketplace.visualstudio.com/items?itemName=incredible-mack.apache-vhost-manager",
+        "description": "Version"
+    }],
+    "screenshots": [{
+        "path": "images/demo.gif",
+        "alt": "Demo Animation"
+    }]
+}
